@@ -9,7 +9,7 @@
     account: '0x0000000000000000000000000000000000000000',
     network: 'testnet',
     payout: 1,
-    symbol: 'ETH',
+    symbol: 'TIA',
     hcaptcha_sitekey: '',
   };
 
@@ -120,18 +120,6 @@
 <main>
   <section class="hero is-info is-fullheight">
     <div class="wave-container">
-      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-        </g>
-      </svg>
       <div class="dots-container">
         {#each Array(20) as _, i}
           <div class="dot" style="--delay: {Math.random() * 5}s; --duration: {15 + Math.random() * 10}s; --x: {Math.random() * 100}%; --y: {Math.random() * 100}%"></div>
@@ -151,17 +139,6 @@
           </div>
           <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
-              <span class="navbar-item">
-                <a
-                  class="button is-white is-outlined"
-                  href="https://github.com/chainflag/eth-faucet"
-                >
-                  <span class="icon">
-                    <i class="fa fa-github" />
-                  </span>
-                  <span>View Source</span>
-                </a>
-              </span>
             </div>
           </div>
         </div>
@@ -170,14 +147,11 @@
 
     <div class="hero-body">
       <div class="container has-text-centered">
-        <div class="column is-6 is-offset-3">
+        <div class="column is-8 is-offset-2">
           <h1 class="title">
             Receive {faucetInfo.payout}
-            {faucetInfo.symbol} per request
+            {faucetInfo.symbol} per 24 hours
           </h1>
-          <h2 class="subtitle">
-            Serving from {faucetInfo.account}
-          </h2>
           <div id="hcaptcha" data-size="invisible"></div>
           <div class="box">
             <div class="field is-grouped">
@@ -206,12 +180,20 @@
 </main>
 
 <style>
+  :global(html) {
+    font-size: 16px;
+  }
+
+  :global(body) {
+    font-size: 16px;
+  }
+
   .hero.is-info {
-    background: linear-gradient(60deg, #c39bd3 0%, #d8b5ff 100%);
+    background: url('/flora.png') center center / cover no-repeat;
     position: relative;
     overflow: hidden;
   }
-  
+
   .wave-container {
     position: absolute;
     width: 100%;
@@ -220,50 +202,7 @@
     left: 0;
     overflow: hidden;
   }
-  
-  .waves {
-    position: absolute;
-    width: 100%;
-    height: 15vh;
-    margin-bottom: -7px;
-    min-height: 100px;
-    max-height: 150px;
-    bottom: 0;
-  }
-  
-  .parallax > use {
-    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
-  }
-  
-  .parallax > use:nth-child(1) {
-    animation-delay: -2s;
-    animation-duration: 7s;
-  }
-  
-  .parallax > use:nth-child(2) {
-    animation-delay: -3s;
-    animation-duration: 10s;
-  }
-  
-  .parallax > use:nth-child(3) {
-    animation-delay: -4s;
-    animation-duration: 13s;
-  }
-  
-  .parallax > use:nth-child(4) {
-    animation-delay: -5s;
-    animation-duration: 20s;
-  }
-  
-  @keyframes move-forever {
-    0% {
-      transform: translate3d(-90px,0,0);
-    }
-    100% { 
-      transform: translate3d(85px,0,0);
-    }
-  }
-  
+
   .dots-container {
     position: absolute;
     width: 100%;
@@ -271,7 +210,7 @@
     top: 0;
     left: 0;
   }
-  
+
   .dot {
     position: absolute;
     width: 4px;
@@ -283,7 +222,7 @@
     animation: float var(--duration) ease-in-out var(--delay) infinite,
                pulse 2s ease-in-out var(--delay) infinite;
   }
-  
+
   @keyframes float {
     0%, 100% {
       transform: translateY(0) translateX(0);
@@ -298,7 +237,7 @@
       transform: translateY(-10px) translateX(5px);
     }
   }
-  
+
   @keyframes pulse {
     0%, 100% {
       opacity: 0.6;
@@ -309,26 +248,92 @@
       transform: scale(1.5);
     }
   }
-  
+
   .hero-head, .hero-body {
     position: relative;
     z-index: 1;
   }
-  
+
+  .hero .title {
+    font-size: 72px;
+    font-weight: bold;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    margin-bottom: 60px;
+  }
+
   .hero .subtitle {
-    padding: 3rem 0;
+    padding: 2rem 0;
     line-height: 1.5;
+    font-size: 32px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: 500;
   }
-  
+
   .box {
-    border-radius: 19px;
+    border-radius: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
-  
+
+  .field.is-grouped {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .control.is-expanded {
+    flex: 1;
+  }
+
+  .input {
+    font-size: 32px !important;
+    height: 80px;
+    padding: 20px 30px;
+    border: 3px solid #ddd;
+    background: white;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .input:focus {
+    border-color: #00d1b2;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 209, 178, 0.15);
+  }
+
+  .input::placeholder {
+    font-size: 18px;
+    color: #999;
+  }
+
+  .button {
+    font-size: 24px;
+    height: 80px;
+    padding: 0 48px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
   /* Responsive adjustments */
   @media (max-width: 768px) {
-    .waves {
-      height: 40px;
-      min-height: 40px;
+    .hero .title {
+      font-size: 40px !important;
+      margin-bottom: 30px;
+    }
+    .hero .subtitle {
+      font-size: 24px !important;
+    }
+    .input {
+      font-size: 24px !important;
+      height: 60px;
+    }
+    .button {
+      font-size: 20px;
+      height: 60px;
+      padding: 0 30px;
     }
   }
 </style>
