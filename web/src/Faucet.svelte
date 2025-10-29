@@ -160,7 +160,7 @@
                   bind:value={input}
                   class="input is-rounded"
                   type="text"
-                  placeholder="Enter your address or ENS name"
+                  placeholder="Enter your address"
                 />
               </p>
               <p class="control">
