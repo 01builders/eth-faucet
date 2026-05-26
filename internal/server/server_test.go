@@ -36,7 +36,7 @@ func setupTestServer(mockBuilder chain.TxBuilder) *Server {
 		proxyCount: 0,
 		interval:   0,
 		network:    "testnet",
-		symbol:     "ETH",
+		symbol:     "GAS",
 		payout:     1.0,
 	}
 	return NewServer(mockBuilder, cfg)

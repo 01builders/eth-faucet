@@ -6,13 +6,13 @@
 [![Go](https://img.shields.io/github/go-mod/go-version/chainflag/eth-faucet)](https://go.dev/)
 [![License](https://img.shields.io/github/license/chainflag/eth-faucet)](https://github.com/chainflag/eth-faucet/blob/main/LICENSE)
 
-The faucet is a web application with the goal of distributing small amounts of Ether in private and test networks.
+The faucet is a web application with the goal of distributing small amounts of GAS in private and test networks.
 
 ## Features
 
 * Configure the funding account using a private key or keystore
 * Implement CAPTCHA verification to prevent abuse
-* Rate-limit requests by ETH address and IP address to prevent spam
+* Rate-limit requests by GAS address and IP address to prevent spam
 * Prevent X-Forwarded-For spoofing by specifying the number of reverse proxies
 
 ## Get started
@@ -83,10 +83,10 @@ The following are the available command-line flags(excluding above wallet flags)
 |-------------------|--------------------------------------------------|---------------|
 | -httpport         | Listener port to serve HTTP connection           | 8080          |
 | -proxycount       | Count of reverse proxies in front of the server  | 0             |
-| -faucet.amount    | Number of Ethers to transfer per user request    | 1.0           |
+| -faucet.amount    | Number of GAS to transfer per user request       | 1.0           |
 | -faucet.minutes   | Number of minutes to wait between funding rounds | 1440          |
 | -faucet.name      | Network name to display on the frontend          | testnet       |
-| -faucet.symbol    | Token symbol to display on the frontend          | ETH           |
+| -faucet.symbol    | Token symbol to display on the frontend          | GAS           |
 | -hcaptcha.sitekey | hCaptcha sitekey                                 |               |
 | -hcaptcha.secret  | hCaptcha secret                                  |               |
 
