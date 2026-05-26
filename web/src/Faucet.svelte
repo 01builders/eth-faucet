@@ -9,7 +9,7 @@
     account: '0x0000000000000000000000000000000000000000',
     network: 'testnet',
     payout: 1,
-    symbol: 'ETH',
+    symbol: 'GAS',
     hcaptcha_sitekey: '',
   };
 
@@ -120,21 +120,50 @@
 <main>
   <section class="hero is-info is-fullheight">
     <div class="wave-container">
-      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <svg
+        class="waves"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28"
+        preserveAspectRatio="none"
+        shape-rendering="auto"
+      >
         <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          <path
+            id="gentle-wave"
+            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+          />
         </defs>
         <g class="parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use
+            xlink:href="#gentle-wave"
+            x="48"
+            y="0"
+            fill="rgba(255,255,255,0.7"
+          />
+          <use
+            xlink:href="#gentle-wave"
+            x="48"
+            y="3"
+            fill="rgba(255,255,255,0.5)"
+          />
+          <use
+            xlink:href="#gentle-wave"
+            x="48"
+            y="5"
+            fill="rgba(255,255,255,0.3)"
+          />
           <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
         </g>
       </svg>
       <div class="dots-container">
         {#each Array(20) as _, i}
-          <div class="dot" style="--delay: {Math.random() * 5}s; --duration: {15 + Math.random() * 10}s; --x: {Math.random() * 100}%; --y: {Math.random() * 100}%"></div>
+          <div
+            class="dot"
+            style="--delay: {Math.random() * 5}s; --duration: {15 +
+              Math.random() * 10}s; --x: {Math.random() *
+              100}%; --y: {Math.random() * 100}%"
+          ></div>
         {/each}
       </div>
     </div>
@@ -211,7 +240,7 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .wave-container {
     position: absolute;
     width: 100%;
@@ -220,7 +249,7 @@
     left: 0;
     overflow: hidden;
   }
-  
+
   .waves {
     position: absolute;
     width: 100%;
@@ -230,40 +259,40 @@
     max-height: 150px;
     bottom: 0;
   }
-  
+
   .parallax > use {
-    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
   }
-  
+
   .parallax > use:nth-child(1) {
     animation-delay: -2s;
     animation-duration: 7s;
   }
-  
+
   .parallax > use:nth-child(2) {
     animation-delay: -3s;
     animation-duration: 10s;
   }
-  
+
   .parallax > use:nth-child(3) {
     animation-delay: -4s;
     animation-duration: 13s;
   }
-  
+
   .parallax > use:nth-child(4) {
     animation-delay: -5s;
     animation-duration: 20s;
   }
-  
+
   @keyframes move-forever {
     0% {
-      transform: translate3d(-90px,0,0);
+      transform: translate3d(-90px, 0, 0);
     }
-    100% { 
-      transform: translate3d(85px,0,0);
+    100% {
+      transform: translate3d(85px, 0, 0);
     }
   }
-  
+
   .dots-container {
     position: absolute;
     width: 100%;
@@ -271,7 +300,7 @@
     top: 0;
     left: 0;
   }
-  
+
   .dot {
     position: absolute;
     width: 4px;
@@ -280,12 +309,14 @@
     border-radius: 50%;
     left: var(--x);
     top: var(--y);
-    animation: float var(--duration) ease-in-out var(--delay) infinite,
-               pulse 2s ease-in-out var(--delay) infinite;
+    animation:
+      float var(--duration) ease-in-out var(--delay) infinite,
+      pulse 2s ease-in-out var(--delay) infinite;
   }
-  
+
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0) translateX(0);
     }
     25% {
@@ -298,9 +329,10 @@
       transform: translateY(-10px) translateX(5px);
     }
   }
-  
+
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.6;
       transform: scale(1);
     }
@@ -309,21 +341,22 @@
       transform: scale(1.5);
     }
   }
-  
-  .hero-head, .hero-body {
+
+  .hero-head,
+  .hero-body {
     position: relative;
     z-index: 1;
   }
-  
+
   .hero .subtitle {
     padding: 3rem 0;
     line-height: 1.5;
   }
-  
+
   .box {
     border-radius: 19px;
   }
-  
+
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .waves {
